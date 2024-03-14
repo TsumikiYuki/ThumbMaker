@@ -1,28 +1,27 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Gerador de Thumbnails</title>
-    <style>
-        /* Estilos CSS aqui */
-    </style>
-</head>
-<body>
-    <h1>Gerador de Thumbnails</h1>
-    <form action="/gerar_thumb" method="post" enctype="multipart/form-data">
-        <label for="video_title">Título do Vídeo:</label>
-        <input type="text" id="video_title" name="video_title" required>
+# app.py
+from flask import Flask, render_template, request
 
-        <label for="image_upload">Upload de Imagem:</label>
-        <input type="file" id="image_upload" name="image_upload" accept="image/*" required multiple>
+app = Flask(__name__)
 
-        <label for="main_color">Cor Principal:</label>
-        <input type="color" id="main_color" name="main_color" required>
+@app.route('/')
+def index():
+    return render_template('index.html')
 
-        <button type="submit">Gerar Thumb</button>
-    </form>
+@app.route('/gerar_thumb', methods=['POST'])
+def gerar_thumb():
+    # Lógica para processar os dados do formulário
+    # e gerar a thumb
+    # Use a biblioteca PIL (Pillow) para manipulação de imagens
 
-    <!-- Exibir a thumb gerada aqui -->
-</body>
-</html>
+    # Exemplo: obter título, imagens e cor
+    video_title = request.form.get('video_title')
+    uploaded_images = request.files.getlist('image_upload')
+    main_color = request.form.get('main_color')
+
+    # Lógica para criar a thumb (implementação real depende das suas necessidades)
+
+    # Retorne a thumb gerada (ou exiba na página)
+    return "Thumb gerada com sucesso!"
+
+if __name__ == '__main__':
+    app.run(debug=True)
