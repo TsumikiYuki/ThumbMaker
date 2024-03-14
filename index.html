@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Gerador de Thumbnails</title>
+    <style>
+        /* Estilos CSS aqui */
+    </style>
+</head>
+<body>
+    <h1>Gerador de Thumbnails</h1>
+    <form action="/gerar_thumb" method="post" enctype="multipart/form-data">
+        <label for="video_title">Título do Vídeo:</label>
+        <input type="text" id="video_title" name="video_title" required>
+
+        <label for="image_upload">Upload de Imagem:</label>
+        <input type="file" id="image_upload" name="image_upload" accept="image/*" required multiple>
+
+        <label for="main_color">Cor Principal:</label>
+        <input type="color" id="main_color" name="main_color" required>
+
+        <button type="submit">Gerar Thumb</button>
+    </form>
+
+    <!-- Exibir a thumb gerada aqui -->
+</body>
+</html>
